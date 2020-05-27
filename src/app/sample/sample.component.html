@@ -1,0 +1,25 @@
+<form [formGroup]="frmStepOne" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+    
+    <div>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Search" value="" formControlName="searchbar">
+        </mat-form-field>
+    </div>
+    
+    
+    
+      
+    <mat-selection-list formControlName="selectedshoes">
+        <mat-list-option #allSelected checkboxPosition="before" [value]="0" (click)="toggleAllSelection()">selectAll</mat-list-option>
+        <mat-list-option checkboxPosition="before" [value]="item.id" *ngFor="let item of data;" (click)="togglePerOne()">{{item.name}}</mat-list-option>
+    </mat-selection-list>
+
+   
+    <div>
+        <button mat-button matStepperNext [disabled]="frmStepOne.invalid">Next</button>
+    </div>
+</form>

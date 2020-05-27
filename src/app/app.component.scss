@@ -1,0 +1,30 @@
+// .mat-tab-label-active {
+//     color: #00ADEE !important;
+// } 
+// .remove-border-bottom .mat-tab-header {
+//     border-bottom: none;
+// }
+// .mat-tab-nav-bar:active{
+//     color: #00ADEE !important;
+// }
+// .mat-ink-bar{
+//     background-color: #00ADEE !important;
+//     display:block;
+//     height: 10px !important;
+// }
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  ::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+    }
+   
+  .mat-form-field {
+    margin-top: 16px;
+  }
+
+
+
+  ::ng-deep .mat-step-header .mat-step-icon {
+    background-color: #1a396b
+  }
