@@ -14,7 +14,8 @@ export class DataService {
             {id:"2",name:'Clogs'}, 
             {id:"3",name:'Loafers'}, 
             {id:"4",name:'Moccasins'}, 
-            {id:"5",name:'Sneakers'}
+            {id:"5",name:'Sneakers'},
+            
         ];
 }
 }

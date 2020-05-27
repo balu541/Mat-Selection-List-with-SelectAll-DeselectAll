@@ -4,3 +4,10 @@
 .example-full-width {
     width: 100%;
   }
+  mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate {
+    background-color: greenyellow;
+}
+mat-pseudo-checkbox{
+    height: 20px;
+    width: 20px;
+}
