@@ -23,19 +23,23 @@ export class SampleComponent  {
   indeterminate = false;
   checked = false;
   name: string;
-
+  filteredShoes:typesOfShoes[];
 
   @ViewChild(MatListOption) private allSelected:MatListOption
+
   constructor(private _formBuilder: FormBuilder,@Inject(DataService) private dataService: DataService) { 
      this.data = dataService.getData();
+     this.filteredShoes=dataService.getData();
      this.frmStepOne = this._formBuilder.group({
-      firstCtrl: ['',Validators.required],
-      searchbar:['',Validators.required],
+      searchbar:[''],
       selectedshoes:[''],
       selectAll:[''],
     });
   }
   ngOnInit() {
+    this.frmStepOne.controls.searchbar.valueChanges.subscribe(searchSrting => {
+      this.filteredShoes = this.getSearchResult(searchSrting).slice();
+      });
   };
 
   toggleAllSelection() {
@@ -56,11 +60,16 @@ export class SampleComponent  {
  }
   onSubmit() {
     if(this.frmStepOne.valid){
-      let k:any;
-
-      k=this.frmStepOne.controls.selectedshoes.value.filter(x=>!isNumber(x)).join(',')
-      console.log(k);
+      if(this.frmStepOne.controls.selectedshoes.value)
+      {
+        let k:any
+        k=this.frmStepOne.controls.selectedshoes.value.filter(x=>!isNumber(x)).join(',')
+       console.log(k);
+      }
       console.log(this.frmStepOne.value);
     }
   }
+  getSearchResult(searchString: string): any {
+    return this.data.filter(x => x.name.toLowerCase().includes(searchString.toLowerCase()))
+ }
 }
